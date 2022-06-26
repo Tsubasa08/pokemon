@@ -20,12 +20,7 @@ import { FC } from 'react'
        res.json()
      )
    )
-  console.log(isLoading);
-  // console.log(error);
-  console.log(`レスポンス：${data.name}`);
-  //  if (isLoading) return 'Loading...'
- 
-  //  if (error) return 'An error has occurred: ' + error.message
+   if (isLoading) return <div>Loading...</div>
  
    return (
      <div>
