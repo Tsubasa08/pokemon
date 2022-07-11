@@ -1,34 +1,27 @@
-import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
-import React from 'react';
-import { FC } from 'react'
- 
- const queryClient = new QueryClient()
+import React from "react";
+import { QueryClient, useQuery } from "react-query";
 
- import { Image, HStack, Center, CloseButton, Box } from '@chakra-ui/react'
+const queryClient = new QueryClient();
 
- export default function App() {
-   return (
-    <QueryClientProvider client={queryClient}>
-      <Query />
-    </QueryClientProvider>
-   )
- }
- 
- function Query() {
-   const { isLoading, error, data } = useQuery('repoData', () =>
-     fetch('https://api.github.com/repos/tannerlinsley/react-query').then(res =>
-       res.json()
-     )
-   )
-   if (isLoading) return <div>Loading...</div>
- 
-   return (
-     <div>
-       <h1>{data.name}</h1>
-       <p>{data.description}</p>
-       <strong>👀 {data.subscribers_count}</strong>{' '}
-       <strong>✨ {data.stargazers_count}</strong>{' '}
-       <strong>🍴 {data.forks_count}</strong>
-     </div>
-   )
- }
+import { Box } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
+
+export default function App() {
+  return <Link to="/pokemons">pokemons</Link>;
+}
+
+function Query() {
+  const { isLoading, error, data } = useQuery("repoData", () =>
+    fetch("https://pokeapi.co/api/v2/pokemon").then((res) => res.json())
+  );
+  if (isLoading) return <div>Loading...</div>;
+  console.log(data.results);
+
+  return (
+    <div>
+      {data.results.map((poke: { url: string }) => {
+        return <Box>{poke.url}</Box>;
+      })}
+    </div>
+  );
+}
