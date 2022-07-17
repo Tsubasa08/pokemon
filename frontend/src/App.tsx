@@ -15,7 +15,6 @@ function Query() {
     fetch("https://pokeapi.co/api/v2/pokemon").then((res) => res.json())
   );
   if (isLoading) return <div>Loading...</div>;
-  console.log(data.results);
 
   return (
     <div>

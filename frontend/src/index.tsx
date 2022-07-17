@@ -12,8 +12,8 @@ root.render(
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/pokemons" element={<Pokemons />} />
+          {/* <Route path="/" element={<App />} /> */}
+          <Route path="/" element={<Pokemons />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>

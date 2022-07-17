@@ -13,6 +13,7 @@ npm install react-query @chakra-ui/icons @chakra-ui/react
 - https://webpack.js.org/guides/build-performance/
 
 ```
+cd frontend
 npx webpack-dev-server
 ```
 
